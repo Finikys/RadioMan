@@ -56,8 +56,11 @@ public class Radio {
     }
 
     public int nextButtonVolume(int newCurrentVolume){
-        if (newCurrentVolume < 9) {
+        if (newCurrentVolume < 10) {
             newCurrentVolume = newCurrentVolume + 1;
+        }
+        else {
+            newCurrentVolume = 0;
         }
         soundVolume = newCurrentVolume;
         return soundVolume;
@@ -66,6 +69,9 @@ public class Radio {
     public int prevButtonVolume(int newCurrentVolume){
         if (newCurrentVolume > 0) {
             newCurrentVolume = newCurrentVolume - 1;
+        }
+        else {
+            newCurrentVolume = 0;
         }
         soundVolume = newCurrentVolume;
         return soundVolume;

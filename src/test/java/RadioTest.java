@@ -162,6 +162,31 @@ public class RadioTest {
 
     }
 
+    @Test
+    public void nextButtonVolumeTestOver(){
+        Radio rad = new Radio();
+
+        rad.nextButtonVolume(612);
+
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void prevButtonVolumeTestMin(){
+        Radio rad = new Radio();
+
+        rad.prevButtonVolume(-123);
+
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
 
 
 }
