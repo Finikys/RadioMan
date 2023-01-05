@@ -2,10 +2,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-
+    int Numbers = 15;
+    int minusNumber = Numbers - 1;
+    int plusNumber = Numbers + 1;
     @Test
     public void maxNumberTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.maxNumber(3);
 
@@ -18,7 +20,7 @@ public class RadioTest {
 
     @Test
     public void nextButtonTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.nextButton(4);
 
@@ -31,7 +33,7 @@ public class RadioTest {
 
     @Test
     public void prevButtonTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.prevButton(5);
 
@@ -46,7 +48,7 @@ public class RadioTest {
 
     @Test
     public void maxVolumeTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.maxVolume(5);
 
@@ -59,11 +61,11 @@ public class RadioTest {
 
     @Test
     public void nextButtonVolumeTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.nextButtonVolume(6);
+        rad.nextButtonVolume(56);
 
-        int expected = 7;
+        int expected = 57;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -72,11 +74,11 @@ public class RadioTest {
 
     @Test
     public void prevButtonVolumeTest(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.prevButtonVolume(6);
+        rad.prevButtonVolume(78);
 
-        int expected = 5;
+        int expected = 77;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -86,9 +88,9 @@ public class RadioTest {
 
     @Test
     public void maxNumberTestOver(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.maxNumber(12);
+        rad.maxNumber(Numbers + 3);
 
         int expected = 0;
         int actual = rad.getCurrentNumber();
@@ -99,7 +101,7 @@ public class RadioTest {
 
     @Test
     public void maxNumberTestMinus(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.maxNumber(-32);
 
@@ -112,9 +114,9 @@ public class RadioTest {
 
     @Test
     public void nextButtonTestOver(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.nextButton(9);
+        rad.nextButton(rad.maxCurrentNumber);
 
         int expected = 0;
         int actual = rad.getCurrentNumber();
@@ -125,11 +127,11 @@ public class RadioTest {
 
     @Test
     public void prevButtonTestOver(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.prevButton(0);
 
-        int expected = 9;
+        int expected = rad.maxCurrentNumber;
         int actual = rad.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -138,9 +140,9 @@ public class RadioTest {
 
     @Test
     public void maxVolumeTestOver(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.maxVolume(13);
+        rad.maxVolume(123);
 
         int expected = 0;
         int actual = rad.getCurrentVolume();
@@ -151,9 +153,9 @@ public class RadioTest {
 
     @Test
     public void maxVolumeTestMin(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
-        rad.maxVolume(-31);
+        rad.maxVolume(-123);
 
         int expected = 0;
         int actual = rad.getCurrentVolume();
@@ -164,7 +166,7 @@ public class RadioTest {
 
     @Test
     public void nextButtonVolumeTestOver(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.nextButtonVolume(612);
 
@@ -177,7 +179,7 @@ public class RadioTest {
 
     @Test
     public void prevButtonVolumeTestMin(){
-        Radio rad = new Radio();
+        Radio rad = new Radio(Numbers);
 
         rad.prevButtonVolume(-123);
 

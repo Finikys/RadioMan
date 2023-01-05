@@ -1,6 +1,11 @@
 public class Radio {
     public int currentNumber;
     public int soundVolume;
+    public int maxCurrentNumber = 9;
+
+    public Radio(int Numbers){
+        this.maxCurrentNumber = Numbers-1;
+    }
 
     public int getCurrentNumber(){
         return currentNumber;
@@ -10,7 +15,7 @@ public class Radio {
         if (newCurrentNumber < 0){
             return;
         }
-        if (newCurrentNumber > 9){
+        if (newCurrentNumber > maxCurrentNumber){
             return;
         }
 
@@ -18,7 +23,7 @@ public class Radio {
     }
 
     public int nextButton(int newCurrentNumber){
-        if (newCurrentNumber < 9) {
+        if (newCurrentNumber < maxCurrentNumber) {
             newCurrentNumber = newCurrentNumber + 1;
         }
         else {
@@ -33,7 +38,7 @@ public class Radio {
             newCurrentNumber = newCurrentNumber - 1;
         }
         else {
-            newCurrentNumber = 9;
+            newCurrentNumber = maxCurrentNumber;
         }
         currentNumber = newCurrentNumber;
         return currentNumber;
@@ -48,7 +53,7 @@ public class Radio {
         if (newCurrentVolume < 0){
             return;
         }
-        if (newCurrentVolume > 10){
+        if (newCurrentVolume > 100){
             return;
         }
 
@@ -56,7 +61,7 @@ public class Radio {
     }
 
     public int nextButtonVolume(int newCurrentVolume){
-        if (newCurrentVolume < 10) {
+        if (newCurrentVolume < 100) {
             newCurrentVolume = newCurrentVolume + 1;
         }
         else {
