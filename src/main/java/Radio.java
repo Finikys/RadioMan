@@ -1,80 +1,67 @@
 public class Radio {
-    public int currentNumber;
-    public int soundVolume;
+    private int currentNumber;
+    private int soundVolume;
 
-    public int getCurrentNumber(){
-        return currentNumber;
-    }
-
-    public void  maxNumber(int newCurrentNumber){
-        if (newCurrentNumber < 0){
+    public void setCurrentNumber(int currentNumber) {
+        if (currentNumber < 0) {
             return;
         }
-        if (newCurrentNumber > 9){
+        if (currentNumber > 9) {
             return;
         }
-
-        currentNumber = newCurrentNumber;
+        this.currentNumber = currentNumber;
     }
 
-    public int nextButton(int newCurrentNumber){
-        if (newCurrentNumber < 9) {
-            newCurrentNumber = newCurrentNumber + 1;
+    public int getSoundVolume() {
+        return soundVolume;
+    }
+
+    public void setSoundVolume(int soundVolume) {
+        if (soundVolume < 0) {
+            return;
         }
-        else {
-            newCurrentNumber = 0;
+        if (soundVolume > 10) {
+            return;
         }
-        currentNumber = newCurrentNumber;
+        this.soundVolume = soundVolume;
+    }
+
+    public int getCurrentNumber() {
         return currentNumber;
     }
 
-    public int prevButton(int newCurrentNumber){
-        if (newCurrentNumber > 0) {
-            newCurrentNumber = newCurrentNumber - 1;
+    public void nextButton() {
+        if (currentNumber < 9) {
+            currentNumber++;
+        } else {
+            currentNumber = 0;
         }
-        else {
-            newCurrentNumber = 9;
+    }
+
+    public void prevButton() {
+        if (currentNumber > 0) {
+            currentNumber--;
+        } else {
+            currentNumber = 9;
         }
-        currentNumber = newCurrentNumber;
-        return currentNumber;
     }
 
     // -------------------------------------------------VOLUME-----------------------------------------------
 
-    public int getCurrentVolume(){
-        return soundVolume;
-    }
-    public void  maxVolume(int newCurrentVolume){
-        if (newCurrentVolume < 0){
-            return;
-        }
-        if (newCurrentVolume > 10){
-            return;
-        }
-
-        soundVolume = newCurrentVolume;
-    }
-
-    public int nextButtonVolume(int newCurrentVolume){
-        if (newCurrentVolume < 10) {
-            newCurrentVolume = newCurrentVolume + 1;
-        }
-        else {
-            newCurrentVolume = 0;
-        }
-        soundVolume = newCurrentVolume;
+    public int getCurrentVolume() {
         return soundVolume;
     }
 
-    public int prevButtonVolume(int newCurrentVolume){
-        if (newCurrentVolume > 0) {
-            newCurrentVolume = newCurrentVolume - 1;
+    public void nextButtonVolume() {
+        if (soundVolume < 10) {
+            soundVolume++;
         }
-        else {
-            newCurrentVolume = 0;
+    }
+
+    public void prevButtonVolume() {
+        if (soundVolume > 0) {
+            soundVolume--;
         }
-        soundVolume = newCurrentVolume;
-        return soundVolume;
     }
 
 }
